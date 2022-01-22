@@ -11,16 +11,20 @@ namespace BloodBanakMVC2.Context
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class userRegistration
     {
         public int ID { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Mobile { get; set; }
-        public string Division { get; set; }
-        public string District { get; set; }
+        public string Mobile { get; set; } 
+        public string  Division { get; set; }
+        public string District { get; set; }   
         public string Criterias { get; set; }
+        public string BloodGroup { get; set; }
+
+
     }
 }

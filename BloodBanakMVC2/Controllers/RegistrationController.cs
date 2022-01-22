@@ -34,9 +34,10 @@ namespace BloodBanakMVC2.Controllers
                 obj.Mobile = model.Mobile;
                 obj.Division = model.Division;
                 obj.District = model.District;
+                obj.BloodGroup = model.BloodGroup;
                 obj.Criterias = model.Criterias;
-            
-                if(model.ID==0)
+
+                if (model.ID==0)
                 {
                     dbObj.userRegistrations.Add(obj);
                     dbObj.SaveChanges();

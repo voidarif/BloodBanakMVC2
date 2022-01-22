@@ -15,6 +15,7 @@
         <th>Division</th>
         <th>District</th>
         <th>Criterias</th>
+        <th>Blood Group</th>
     </tr>
 
     @foreach(var item in Model)
@@ -27,9 +28,10 @@
     <td>@item.Division</td>
     <td>@item.District</td>
     <td>@item.Criterias</td>
+    <td>@item.BloodGroup</td>
 
     <td>
-        <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias })" class="btn btn-success">Edit</a>
+        <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>
         <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
     </td>
 </tr>
