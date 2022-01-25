@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 namespace BloodBanakMVC2.Controllers
 {
     public class LoginController : Controller
@@ -15,20 +16,29 @@ namespace BloodBanakMVC2.Controllers
             return View();
         }
 
+        
+        [HttpGet]
+        public ActionResult CheckUser()
+        {
+            return View();
+        }
         [HttpPost]
-
+       // [ValidateAntiForgeryToken]
         public ActionResult CheckUser(userRegistration model)
         {
+            userRegistration obj = new userRegistration();
             if (ModelState.IsValid)
             {
                 using (BloodBankEntities db = new BloodBankEntities())
                 {
                     var v = db.userRegistrations.Where(x => x.Email.Equals(model.Email) && x.Password.Equals(model.Password)).FirstOrDefault();
 
-                    if (v != null) { 
-                       // Session["log"] = v.Email.ToString();
-                        return RedirectToAction("Index", "Home");
-                        }else
+                    if (v != null) {
+                        Session["ID"] = obj.ID.ToString(); //newline
+                       
+                        return RedirectToAction("Index", "Home"); 
+                    }
+                    else
                         {
 
                           //  Session["log"] = v.Email.ToString();
@@ -40,7 +50,7 @@ namespace BloodBanakMVC2.Controllers
                 }
  
             ModelState.Clear();
-            return View("Home", "Index", "Home");
+            return View();
         }
 
         public ActionResult Index()

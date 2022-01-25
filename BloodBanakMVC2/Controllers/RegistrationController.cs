@@ -37,10 +37,21 @@ namespace BloodBanakMVC2.Controllers
                 obj.BloodGroup = model.BloodGroup;
                 obj.Criterias = model.Criterias;
 
-                if (model.ID==0)
+                //code of 25-01-2022 new method to verify if the user exist or not
+              /*  if(dbObj.userRegistrations.Any(x=>x.Email==model.Email))
+                {
+                    ViewBag.Notification = "This account has already exist";
+                    return View();
+                }*/
+
+               if (model.ID==0) 
                 {
                     dbObj.userRegistrations.Add(obj);
                     dbObj.SaveChanges();
+
+                    Session["ID"] = obj.ID.ToString(); //newline
+                    Session["FullName"] = obj.FullName.ToString(); //new line
+                    return RedirectToAction("Index", "Home"); //new line added
                 }
                 else
                 {
@@ -69,6 +80,12 @@ namespace BloodBanakMVC2.Controllers
 
             var newList = dbObj.userRegistrations.ToList();
             return View("UserList",newList);
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
