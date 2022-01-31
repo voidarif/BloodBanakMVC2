@@ -23,7 +23,7 @@ namespace BloodBanakMVC2.Controllers
             return View();
         }
         [HttpPost]
-       // [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult CheckUser(userRegistration model)
         {
             userRegistration obj = new userRegistration();
@@ -34,8 +34,8 @@ namespace BloodBanakMVC2.Controllers
                     var v = db.userRegistrations.Where(x => x.Email.Equals(model.Email) && x.Password.Equals(model.Password)).FirstOrDefault();
 
                     if (v != null) {
-                        Session["ID"] = obj.ID.ToString(); //newline
-                       
+                        //  Session["ID"] = obj.ID.ToString(); //newline
+                        Session["UserName"] = obj.FullName.ToString();
                         return RedirectToAction("Index", "Home"); 
                     }
                     else
@@ -53,7 +53,7 @@ namespace BloodBanakMVC2.Controllers
             return View();
         }
 
-        public ActionResult Index()
+       /* public ActionResult Index()
         {
             if (Session["log"] != null)
             {
@@ -74,6 +74,6 @@ namespace BloodBanakMVC2.Controllers
             {
                 return RedirectToAction("Login");
             }
-        }
+        }*/
     }
 }

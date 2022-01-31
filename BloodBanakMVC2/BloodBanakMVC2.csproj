@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DonorSearchListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Context\dbModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -147,7 +148,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LoginNameController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
-    <Compile Include="Controllers\SeekDonorController.cs" />
+    <Compile Include="Controllers\SearchDonorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,7 +221,8 @@
     <Content Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Registration\UserList.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\SeekDonor\searchDonor.cshtml" />
+    <Content Include="Views\SearchDonor\SearchDonor.cshtml" />
+    <Content Include="Views\DonorSearchList\DonorSearchList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
