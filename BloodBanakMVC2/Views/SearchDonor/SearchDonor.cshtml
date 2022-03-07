@@ -60,51 +60,74 @@
 
 @using (Html.BeginForm("DonorSearchList", "DonorSearchList", FormMethod.Get))
 {
-    <div class="container">
+<div class="container">
 
-        <div class="form-group">
-            <div class="row">
-                <label>Division</label>
-                @Html.ValidationMessageFor(x => x.Division, "", new { @class = "error" })
-                @*@Html.TextBoxFor(x => x.Division, new { @class = "form-control" })*@
-                <div class="container">
-                    <select id="level1" class="col-md-10" name="division" asp-items="@Model= x.Division">
-                        <option>Select Division</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Barisal">Barisal</option>
-                        <option value="Chittagong">Chittagong</option>
-                        <option value="Khulna">Khulna</option>
-                        <option value="Mymensingh">Mymensingh</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Rangpur">Rangpur</option>
-                        <option value="Sylhet">Sylhet</option>
-                    </select>
-                    <br />
-                    <br />
-                    <label>District</label>
-                    <br />
-                    @Html.ValidationMessageFor(x => x.District, "", new { @class = "error" })
-                    <select id="level2" class="col-md-10" name="district" asp-items="@Model= x.District"></select>
-                </div>
-
-                <script src="~/Scripts/DivDisFinal.js"></script>
-
-
-                @* @section scripts{
-                        <script type="text/javascript">
-                            $(function () {
-                                $('[name=district]').chosen();
-                            });
-                        </script>
-                    }*@
+    <div class="form-group">
+        <div class="row">
+            <label>Division</label>
+            @Html.ValidationMessageFor(x => x.Division, "", new { @class = "error" })
+            @*@Html.TextBoxFor(x => x.Division, new { @class = "form-control" })*@
+            <div class="container">
+                <select id="level1" class="col-md-10" name="division" asp-items="@Model= x.Division">
+                    <option>Select Division</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Sylhet">Sylhet</option>
+                </select>
+                <br />
+                <br />
+                <label>District</label>
+                <br />
+                @Html.ValidationMessageFor(x => x.District, "", new { @class = "error" })
+                <select id="level2" class="col-md-10" name="district" asp-items="@Model= x.District"></select>
             </div>
-        </div>
 
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Search</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
+            <script src="~/Scripts/DivDisFinal.js"></script>
+
+
+            @* @section scripts{
+                    <script type="text/javascript">
+                        $(function () {
+                            $('[name=district]').chosen();
+                        });
+                    </script>
+                }*@
         </div>
     </div>
+
+
+    <div class="form-group">
+        <div class="row">
+            <label>Blood Group</label>
+            @*@Html.ValidationMessageFor(x => x.BloodGroup, "", new { @class = "error" })
+                @Html.TextBoxFor(x => x.BloodGroup, new { @class = "form-control" })*@
+            <div class="container">
+                <select class="col-md-10" name="BloodGroup" asp-items="@Model= x.BloodGroup">
+                    <option>Select Group</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>o+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+</div>
 }
 
 

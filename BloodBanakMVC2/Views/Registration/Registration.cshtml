@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <style>
-    .error{
-        color:red;
+    .error {
+        color: red;
     }
 </style>
 
@@ -15,9 +15,9 @@
 {
 <div class="container">
     <div class="form-group">
-        @Html.HiddenFor(x=>x.ID)
+        @Html.HiddenFor(x => x.ID)
         <label>Full Name</label>
-        @Html.ValidationMessageFor(x=>x.FullName,"",new {@class="error" })
+        @Html.ValidationMessageFor(x => x.FullName, "", new { @class = "error" })
         @Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })
     </div>
     <div class="form-group">
@@ -29,7 +29,7 @@
     <div class="form-group">
         <label>Password</label>
         @Html.ValidationMessageFor(x => x.Password, "", new { @class = "error" })
-        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
@@ -40,100 +40,114 @@
 
     <div class="form-group">
         <div class="row">
-                <label>Division</label>
-                 @Html.ValidationMessageFor(x => x.Division, "", new { @class = "error" })
+            <label>Division</label>
+            @Html.ValidationMessageFor(x => x.Division, "", new { @class = "error" })
             @*@Html.TextBoxFor(x => x.Division, new { @class = "form-control" })*@
-                <div class="container">
-                    <select id="level1" class="col-md-10" name="division" asp-items="@Model= x.Division">
-                        <option>Select Division</option>
-                        <option value="Dhaka">Dhaka</option>
-                        <option value="Barisal">Barisal</option>
-                        <option value="Chittagong">Chittagong</option>
-                        <option value="Khulna">Khulna</option>
-                        <option value="Mymensingh">Mymensingh</option>
-                        <option value="Rajshahi">Rajshahi</option>
-                        <option value="Rangpur">Rangpur</option>
-                        <option value="Sylhet">Sylhet</option>
-                    </select>
-                    <br />
-                    <br />
-                    <label>District</label>
-                    <br />
-                    @Html.ValidationMessageFor(x => x.District, "", new { @class = "error" })
-                    <select id="level2" class="col-md-10" name="district" asp-items="@Model= x.District"></select>
-                </div>
-
-                <script src="~/Scripts/DivDisFinal.js"></script>
-                @*@section scripts{
-                <script type="text/javascript">
-                    $(function () {
-                        $('[name=division]').chosen();
-                    });
-                    $(function () {
-                        $('[name=district]').chosen();
-                    });
-                </script>
-            }*@
-
-                @*<div class="row">
-                <div class="col-md-12">
-                    <select id="level1" class="col-md-10" name="division" asp-items="@Model= x.Division">
-                        <option>Select Division</option>
-                        <option>Dhaka</option>
-                        <option>Barisal</option>
-                        <option>Chittagong</option>
-                        <option>Khulna</option>
-                        <option>Mymensingh</option>
-                        <option>Rajshahi</option>
-                        <option>Rangpur</option>
-                        <option>Sylhet</option>
-                    </select>
-                </div>
+            <div class="container">
+                <select id="level1" class="col-md-10" name="division" asp-items="@Model= x.Division">
+                    <option>Select Division</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Sylhet">Sylhet</option>
+                </select>
+                <br />
+                <br />
                 <label>District</label>
                 <br />
-                <br />
+                @Html.ValidationMessageFor(x => x.District, "", new { @class = "error" })
                 <select id="level2" class="col-md-10" name="district" asp-items="@Model= x.District"></select>
             </div>
-                @section scripts{
+
+            <script src="~/Scripts/DivDisFinal.js"></script>
+            @*@section scripts{
                     <script type="text/javascript">
                         $(function () {
                             $('[name=division]').chosen();
                         });
-
+                        $(function () {
+                            $('[name=district]').chosen();
+                        });
                     </script>
-                }
-                <script src="~/Scripts/DivDisFinal.js"></script>*@
-               
-            </div>
+                }*@
+
+            @*<div class="row">
+                    <div class="col-md-12">
+                        <select id="level1" class="col-md-10" name="division" asp-items="@Model= x.Division">
+                            <option>Select Division</option>
+                            <option>Dhaka</option>
+                            <option>Barisal</option>
+                            <option>Chittagong</option>
+                            <option>Khulna</option>
+                            <option>Mymensingh</option>
+                            <option>Rajshahi</option>
+                            <option>Rangpur</option>
+                            <option>Sylhet</option>
+                        </select>
+                    </div>
+                    <label>District</label>
+                    <br />
+                    <br />
+                    <select id="level2" class="col-md-10" name="district" asp-items="@Model= x.District"></select>
+                </div>
+                    @section scripts{
+                        <script type="text/javascript">
+                            $(function () {
+                                $('[name=division]').chosen();
+                            });
+
+                        </script>
+                    }
+                    <script src="~/Scripts/DivDisFinal.js"></script>*@
+
         </div>
+    </div>
+
 
     <div class="form-group">
         <div class="row">
             <label>Blood Group</label>
             @*@Html.ValidationMessageFor(x => x.BloodGroup, "", new { @class = "error" })
-            @Html.TextBoxFor(x => x.BloodGroup, new { @class = "form-control" })*@
+                @Html.TextBoxFor(x => x.BloodGroup, new { @class = "form-control" })*@
             <div class="container">
-                <select class="col-md-10" name="bloodgroup" asp-items="@Model= x.BloodGroup">
+                <select class="col-md-10" name="BloodGroup" asp-items="@Model= x.BloodGroup">
                     <option>Select Group</option>
                     <option>A+</option>
                     <option>A-</option>
                     <option>B+</option>
                     <option>B-</option>
+                    <option>o+</option>
+                    <option>O-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
 
                 </select>
             </div>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label>Criterias</label>
-            @Html.TextAreaFor(x => x.Criterias, new { @class = "form-control", @rows = "10" })
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
         </div>
     </div>
-}
+
+
+    <div class="form-group">
+        <label>Criterias</label>
+        @Html.TextAreaFor(x => x.Criterias, new { @class = "form-control", @rows = "10" })
+    </div>
+
+
+    @* <div class="form-group">
+            <label>Blood Group</label>
+            @Html.ValidationMessageFor(x => x.BloodGroup, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.BloodGroup, new { @class = "form-control" })
+        </div>*@
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </div>
+</div>
+    }
 

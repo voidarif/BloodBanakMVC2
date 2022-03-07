@@ -24,7 +24,7 @@ namespace BloodBanakMVC2.Controllers
             if (ModelState.IsValid)
             {
                 
-                    var v = dbObj.userRegistrations.Where(x => x.Division.Equals(model.Division) && x.District.Equals(model.District)).FirstOrDefault();
+                    var v = dbObj.userRegistrations.Where(x => x.Division.Equals(model.Division) && x.District.Equals(model.District) && x.BloodGroup.Equals(model.BloodGroup)).FirstOrDefault();
 
                     if (v != null)
                     {

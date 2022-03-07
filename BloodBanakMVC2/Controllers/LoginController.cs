@@ -16,14 +16,14 @@ namespace BloodBanakMVC2.Controllers
             return View();
         }
 
-        
-        [HttpGet]
+
+        [HttpPost]
         public ActionResult CheckUser()
         {
             return View();
         }
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpGet]
+        // [ValidateAntiForgeryToken]
         public ActionResult CheckUser(userRegistration model)
         {
             userRegistration obj = new userRegistration();
@@ -33,47 +33,50 @@ namespace BloodBanakMVC2.Controllers
                 {
                     var v = db.userRegistrations.Where(x => x.Email.Equals(model.Email) && x.Password.Equals(model.Password)).FirstOrDefault();
 
-                    if (v != null) {
-                        //  Session["ID"] = obj.ID.ToString(); //newline
-                        Session["UserName"] = obj.FullName.ToString();
-                        return RedirectToAction("Index", "Home"); 
+                    if (v != null)
+                    {
+                        // Session["ID"] = obj.ID.ToString(); //newline
+                        // Session["FullName"] = obj.FullName.ToString();
+                       // Session["FullName"] = model.FullName.ToString();
+                        return RedirectToAction("Index", "Home");
                     }
                     else
-                        {
+                    {
 
-                          //  Session["log"] = v.Email.ToString();
-                            return RedirectToAction("About", "Home");
-                        }
-
+                        //  Session["log"] = v.Email.ToString();
+                        return RedirectToAction("About", "Home");
                     }
-                   
+
                 }
- 
+
+            }
+
             ModelState.Clear();
             return View();
         }
 
-       /* public ActionResult Index()
-        {
-            if (Session["log"] != null)
-            {
-                return View("Index");
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
-        }
-        public ActionResult user()
-        {
-            if (Session["log"] != null)
-            {
-                return View("~/Views/Home/About.cshtml");
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
-        }*/
+        /* public ActionResult Index()
+         {
+             if (Session["log"] != null)
+             {
+                 return View("Index");
+             }
+             else
+             {
+                 return RedirectToAction("Login");
+             }
+         }
+         public ActionResult user()
+         {
+             if (Session["log"] != null)
+             {
+                 return View("~/Views/Home/About.cshtml");
+             }
+             else
+             {
+                 return RedirectToAction("Login");
+             }
+         }*/
+
     }
 }

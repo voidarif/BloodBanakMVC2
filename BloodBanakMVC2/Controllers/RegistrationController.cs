@@ -34,17 +34,17 @@ namespace BloodBanakMVC2.Controllers
                 obj.Mobile = model.Mobile;
                 obj.Division = model.Division;
                 obj.District = model.District;
-                obj.BloodGroup = model.BloodGroup;
                 obj.Criterias = model.Criterias;
+                obj.BloodGroup = model.BloodGroup;
 
                 //code of 25-01-2022 new method to verify if the user exist or not
-              /*  if(dbObj.userRegistrations.Any(x=>x.Email==model.Email))
-                {
-                    ViewBag.Notification = "This account has already exist";
-                    return View();
-                }*/
+                /*  if(dbObj.userRegistrations.Any(x=>x.Email==model.Email))
+                  {
+                      ViewBag.Notification = "This account has already exist";
+                      return View();
+                  }*/
 
-               if (model.ID==0) 
+                if (model.ID==0) 
                 {
                     dbObj.userRegistrations.Add(obj);
                     dbObj.SaveChanges();

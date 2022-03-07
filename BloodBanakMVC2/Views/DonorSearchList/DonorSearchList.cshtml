@@ -6,50 +6,64 @@
 
 <h2>DonorSearchList</h2>
 @*@using (Html.BeginForm("DonorSearchList", "DonorSearchList", FormMethod.Get))
-{
-
-    // @Html.TextBox("searching");
-    <select name="division">
-        <option>Dhaka</option>
-    </select>
-
-    <select name="district">
-         <option>Gazipur</option>
-    </select>
-    <input type="submit" value="Submit" />
-
-}*@
-<table class="table table-hover">
-    <tr>
-        <th>Full Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>Division</th>
-        <th>District</th>
-        <th>Blood Group</th>
-    </tr>
-
-    @foreach (var item in Model)
     {
+
+        // @Html.TextBox("searching");
+        <select name="division">
+            <option>Dhaka</option>
+        </select>
+
+        <select name="district">
+             <option>Gazipur</option>
+        </select>
+        <input type="submit" value="Submit" />
+
+    }*@
+@using (Html.BeginForm("ContactWithDonor", "ContactWithDonor", FormMethod.Get))
+{
+    <table class="table table-hover">
         <tr>
-            <td>@Html.DisplayFor(x => item.FullName)</td>
-            <td>@Html.DisplayFor(x => item.Email)</td>
-            <td>@Html.DisplayFor(x => item.Mobile)</td>
-            <td>@Html.DisplayFor(x => item.Division)</td>
-            <td>@Html.DisplayFor(x => item.District)</td>
-            <td>@Html.DisplayFor(x => item.BloodGroup)</td>
-
-            @* <td>@item.FullName</td>
-                <td>@item.Email</td>
-                <td>@item.Mobile</td>
-                <td>@item.Division</td>
-                <td>@item.District</td>
-                <td>@item.BloodGroup</td>*@
-
-            @*<td>
-                    <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>
-                    <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
-                </td>*@
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Division</th>
+            <th>District</th>
+            <th>Blood Group</th>
         </tr>
-    }
-</table>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>@Html.DisplayFor(x => item.FullName)</td>
+        <td>@Html.DisplayFor(x => item.Email)</td>
+        <td>@Html.DisplayFor(x => item.Mobile)</td>
+        <td>@Html.DisplayFor(x => item.Division)</td>
+        <td>@Html.DisplayFor(x => item.District)</td>
+        <td>@Html.DisplayFor(x => item.BloodGroup)</td>
+
+        @* <td>@item.FullName</td>
+        <td>@item.Email</td>
+        <td>@item.Mobile</td>
+        <td>@item.Division</td>
+        <td>@item.District</td>
+        <td>@item.BloodGroup</td>*@
+  
+        @*<td>
+            <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>
+            <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
+        </td>*@
+        @using (Html.BeginForm("ContactOptions", "ContactOptions", FormMethod.Get))
+        {
+    <td>
+        <button type="submit" class="btn btn-primary">Contact</button>
+        <a href="tel:@item.Mobile" class="btn btn-success">Call Now</a>
+        <a href="sms:+88 @item.Mobile" class="btn btn-success">SMS Now</a>
+        <a href="mailto: @item.Email" class="btn btn-success" style="background-color:darkorchid">Email Now</a>
+    </td>
+        }
+
+    </tr>
+        }
+    </table>
+
+}

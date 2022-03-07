@@ -31,10 +31,11 @@
 
                 </ul>
                 <ul class="nav navbar-nav" style="float: right !important">
-                    @if (Session["UserName"] != null)
+                    @if (Session["FullName"] != null)
                     {
-                        <li><p style="color:#fff; margin-top:15px">Hello @Session["UserName"]</p></li>
+                        <li><p style="color:#fff; margin-top:15px">Hello @Session["FullName"]</p></li>
                         <li>@Html.ActionLink("Logout", "Logout", "Registration")</li>
+                        <li>@Html.ActionLink("UserProfile", "UserProfile", "UserProfile")</li>
                     }
                     else
                     {

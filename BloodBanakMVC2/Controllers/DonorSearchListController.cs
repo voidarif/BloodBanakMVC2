@@ -12,12 +12,12 @@ namespace BloodBanakMVC2.Controllers
         BloodBankEntities db = new BloodBankEntities();
         // GET: DonorSearchList
         /*[HttpGet]*/
-        public ActionResult DonorSearchList(string division, string district)
+        public ActionResult DonorSearchList(string division, string district, string bloodgroup)
         {
             var res = from s in db.userRegistrations select s;
             if (!string.IsNullOrEmpty(division) || !string.IsNullOrEmpty(district))
             {
-                res = res.Where(x => x.Division.Contains(division) && x.District.Contains(district));
+                res = res.Where(x => x.Division.Contains(division) && x.District.Contains(district) && x.BloodGroup.Contains(bloodgroup));
             }
                 return View(res.ToList());
         }

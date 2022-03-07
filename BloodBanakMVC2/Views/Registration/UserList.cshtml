@@ -12,10 +12,10 @@
         <th>Email</th>
         <th>Password</th>
         <th>Mobile</th>
+        <th>Blood Group</th>
         <th>Division</th>
         <th>District</th>
         <th>Criterias</th>
-        <th>Blood Group</th>
     </tr>
 
     @foreach(var item in Model)
@@ -25,10 +25,10 @@
     <td>@item.Email</td>
     <td>@item.Password</td>
     <td>@item.Mobile</td>
+    <td>@item.BloodGroup</td>
     <td>@item.Division</td>
     <td>@item.District</td>
     <td>@item.Criterias</td>
-    <td>@item.BloodGroup</td>
 
     <td>
         <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>

@@ -25,6 +25,7 @@ namespace BloodBanakMVC2.Context
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<userRegistration> userRegistrations { get; set; }
     }
 }
