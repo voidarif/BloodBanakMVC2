@@ -23,5 +23,7 @@ namespace BloodBanakMVC2.Context
         public string District { get; set; }
         public string Criterias { get; set; }
         public string BloodGroup { get; set; }
+
+        public string LoginError { get; set; }
     }
 }

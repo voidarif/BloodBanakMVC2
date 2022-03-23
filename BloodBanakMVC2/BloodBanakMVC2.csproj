@@ -154,7 +154,9 @@
     <Compile Include="Controllers\DonorSearchListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginFailedController.cs" />
     <Compile Include="Controllers\LoginNameController.cs" />
+    <Compile Include="Controllers\NotanUserController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SearchDonorController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -164,6 +166,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animatedBack.css" />
     <Content Include="Content\bootstrap-chosen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -185,6 +188,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\car.gif" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\bootstrap-chosen.scss" />
@@ -231,6 +236,8 @@
     <Content Include="Views\DonorSearchList\DonorSearchList.cshtml" />
     <Content Include="Views\ContactOptions\ContactOptions.cshtml" />
     <Content Include="Views\UserProfile\UserProfile.cshtml" />
+    <Content Include="Views\NotanUser\NotanUser.cshtml" />
+    <Content Include="Views\LoginFailed\LoginFailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

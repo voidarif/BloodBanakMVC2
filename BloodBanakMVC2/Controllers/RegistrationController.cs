@@ -43,14 +43,14 @@ namespace BloodBanakMVC2.Controllers
                       ViewBag.Notification = "This account has already exist";
                       return View();
                   }*/
-
+              
                 if (model.ID==0) 
                 {
                     dbObj.userRegistrations.Add(obj);
                     dbObj.SaveChanges();
 
-                    Session["ID"] = obj.ID.ToString(); //newline
-                    Session["FullName"] = obj.FullName.ToString(); //new line
+                    Session["ID"] =model.ID; //newline
+                    Session["FullName"] = model.FullName; //new line
                     return RedirectToAction("Index", "Home"); //new line added
                 }
                 else
@@ -87,5 +87,13 @@ namespace BloodBanakMVC2.Controllers
             Session.Clear();
             return RedirectToAction("Index", "Home");
         }
+
+        //new code for validate email exist or not in database
+       /* [HttpGet]
+        public ActionResult CheckEmail(userRegistration ur)
+        {
+            var result = dbObj.userRegistrations.ToList().Exists(x => x.Email.Equals(ur.Email, StringComparison.CurrentCultureIgnoreCase));
+            return RedirectToAction("Index", "Home");
+        }*/
     }
 }
