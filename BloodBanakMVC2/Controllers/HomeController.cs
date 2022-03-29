@@ -26,5 +26,11 @@ namespace BloodBanakMVC2.Controllers
 
             return View();
         }
+        public ActionResult Helpline()
+        {
+
+            return View();
+        }
+
     }
 }

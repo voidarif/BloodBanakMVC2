@@ -1,17 +1,25 @@
 ﻿@{
-    ViewBag.Title = "Contact";
+    ViewBag.Title = "Help Line";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+<div class="container">
+    <div class="form-group">
+        @if (Session["FullName"] == null)
+        {
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+
+            <h2>Hello, Guest</h2>
+        }
+        else
+        {
+            <h2>Hello, @Session["FullName"] </h2>
+        }
+        <h3> Welcome to the help Line</h3>
+
+        <h4>How can we help you? <br /><br />If you need to contact our Admin Panel choose options:</h4>
+        <a href="tel:01780679452" class="btn btn-success" style="background-color: aqua; color: black">Call Now</a>
+        <a href="sms:+88 01780679452" class="btn btn-success">SMS Now</a>
+        <a href="mailto: karif6643@gmail.com" class="btn btn-success" style="background-color:springgreen; color:black">Email Now</a>
+    </div>
+
+</div>

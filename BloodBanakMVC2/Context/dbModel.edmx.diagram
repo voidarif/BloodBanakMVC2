@@ -4,9 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d3b0fb2db51d4f62882d78f2dcf83d1c" Name="Diagram1">
+      <Diagram DiagramId="10e023de9f6a485db5137a8120324952" Name="Diagram1">
         <EntityTypeShape EntityType="BloodBankModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodBankModel.userRegistration" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BloodBankModel.tbl_userPost" Width="1.5" PointX="6.125" PointY="1.875" />
+        <AssociationConnector Association="BloodBankModel.FK_tbl_userPost_userRegistration" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -6,8 +6,8 @@
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-<link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
-<link href="~/Content/animatedBack.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-chosen.css" rel="stylesheet" />
+    <link href="~/Content/animatedBack.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -24,19 +24,21 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Helpline", "Contact", "Home")</li>
                     <li>@Html.ActionLink("UserList", "UserList", "Registration")</li>
                     @*<li>@Html.ActionLink("Registration", "Registration", "Registration")</li>
-                    <li>@Html.ActionLink("Login", "Login", "Login")</li>*@
+        <li>@Html.ActionLink("Login", "Login", "Login")</li>*@
                     <li>@Html.ActionLink("SearchDonor", "SearchDonor", "SearchDonor")</li>
-
+                    <li>@Html.ActionLink("Blood Requests", "ShowBloodRequests", "RequestForBlood")</li>
                 </ul>
                 <ul class="nav navbar-nav" style="float: right !important">
                     @if (Session["FullName"] != null)
                     {
                         <li><p style="color:#fff; margin-top:15px">Hello @Session["FullName"]</p></li>
                         <li>@Html.ActionLink("Logout", "Logout", "Registration")</li>
-                        <li>@Html.ActionLink("UserProfile", "UserProfile", "UserProfile")</li>
+                        @*<li>@Html.ActionLink("UserProfile", "UserProfile", "UserProfile")</li>*@
+                        <li>@Html.ActionLink("Request For Blood", "Index", "RequestForBlood")</li>
+
                     }
                     else
                     {
@@ -47,13 +49,14 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    @*<div class="container body-content">
+    </div>*@
         @RenderBody()
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - BY DXD Studio</p>
         </footer>
-    </div>
+    
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

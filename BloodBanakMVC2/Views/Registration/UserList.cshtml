@@ -3,38 +3,46 @@
     ViewBag.Title = "UserList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container body-content">
+    <h2>UserList</h2>
 
-<h2>UserList</h2>
+    <table class="table table-hover">
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Mobile</th>
+            <th>Blood Group</th>
+            <th>Division</th>
+            <th>District</th>
+            <th>Upazilla</th>
+            <th>Union</th>
+            <th>Village</th>
+            <th>Criterias</th>
+        </tr>
 
-<table class="table table-hover">
-    <tr>
-        <th>Full Name</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Mobile</th>
-        <th>Blood Group</th>
-        <th>Division</th>
-        <th>District</th>
-        <th>Criterias</th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>@item.Password</td>
+                <td>@item.Mobile</td>
+                <td>@item.BloodGroup</td>
+                <td>@item.Division</td>
+                <td>@item.District</td>
+                <td>@item.Sub_District</td>
+                <td>@item.Union_council</td>
+                <td>@item.Village</td>
+                <td>@item.Criterias</td>
 
-    @foreach(var item in Model)
-            {
-<tr>
-    <td>@item.FullName</td>
-    <td>@item.Email</td>
-    <td>@item.Password</td>
-    <td>@item.Mobile</td>
-    <td>@item.BloodGroup</td>
-    <td>@item.Division</td>
-    <td>@item.District</td>
-    <td>@item.Criterias</td>
+                <td>
+                    <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
 
-    <td>
-        <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>
-        <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
-    </td>
-</tr>
-            }
-</table>
+</div>
 

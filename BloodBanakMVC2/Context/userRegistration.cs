@@ -14,6 +14,12 @@ namespace BloodBanakMVC2.Context
     
     public partial class userRegistration
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public userRegistration()
+        {
+            this.tbl_userPost = new HashSet<tbl_userPost>();
+        }
+    
         public int ID { get; set; }
         public string FullName { get; set; }
         public string Email { get; set; }
@@ -23,7 +29,12 @@ namespace BloodBanakMVC2.Context
         public string District { get; set; }
         public string Criterias { get; set; }
         public string BloodGroup { get; set; }
-
-        public string LoginError { get; set; }
+        public string Sub_District { get; set; }
+        public string Union_council { get; set; }
+        public string Village { get; set; }
+        public Nullable<System.DateTime> Last_donation_date { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbl_userPost> tbl_userPost { get; set; }
     }
 }

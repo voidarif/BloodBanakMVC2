@@ -146,6 +146,9 @@
     <Compile Include="Context\sysdiagram.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\tbl_userPost.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\userRegistration.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
@@ -158,6 +161,7 @@
     <Compile Include="Controllers\LoginNameController.cs" />
     <Compile Include="Controllers\NotanUserController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\RequestForBloodController.cs" />
     <Compile Include="Controllers\SearchDonorController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +242,12 @@
     <Content Include="Views\UserProfile\UserProfile.cshtml" />
     <Content Include="Views\NotanUser\NotanUser.cshtml" />
     <Content Include="Views\LoginFailed\LoginFailed.cshtml" />
+    <Content Include="Views\RequestForBlood\Create.cshtml" />
+    <Content Include="Views\RequestForBlood\Delete.cshtml" />
+    <Content Include="Views\RequestForBlood\Details.cshtml" />
+    <Content Include="Views\RequestForBlood\Edit.cshtml" />
+    <Content Include="Views\RequestForBlood\Index.cshtml" />
+    <Content Include="Views\RequestForBlood\ShowBloodRequests.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

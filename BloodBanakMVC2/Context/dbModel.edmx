@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BloodBankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BloodBankModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -14,6 +14,14 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_userPost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Message" Type="varchar" MaxLength="2000" />
         </EntityType>
         <EntityType Name="userRegistration">
           <Key>
@@ -28,13 +36,33 @@
           <Property Name="District" Type="varchar" MaxLength="50" />
           <Property Name="Criterias" Type="varchar" MaxLength="50" />
           <Property Name="BloodGroup" Type="varchar" MaxLength="5" />
+          <Property Name="Sub_District" Type="varchar" MaxLength="50" />
+          <Property Name="Union_council" Type="varchar" MaxLength="50" />
+          <Property Name="Village" Type="varchar" MaxLength="50" />
+          <Property Name="Last_donation_date" Type="datetime" />
         </EntityType>
+        <Association Name="FK_tbl_userPost_userRegistration">
+          <End Role="userRegistration" Type="Self.userRegistration" Multiplicity="1" />
+          <End Role="tbl_userPost" Type="Self.tbl_userPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userRegistration">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_userPost">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BloodBankModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_userPost" EntityType="Self.tbl_userPost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userRegistration" EntityType="Self.userRegistration" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_userPost_userRegistration" Association="Self.FK_tbl_userPost_userRegistration">
+            <End Role="userRegistration" EntitySet="userRegistration" />
+            <End Role="tbl_userPost" EntitySet="tbl_userPost" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BloodBankModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -61,11 +89,42 @@
           <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Criterias" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="BloodGroup" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Sub_District" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Union_council" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Village" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Last_donation_date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tbl_userPost" Relationship="BloodBankModel.FK_tbl_userPost_userRegistration" FromRole="userRegistration" ToRole="tbl_userPost" />
         </EntityType>
         <EntityContainer Name="BloodBankEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="userRegistrations" EntityType="Self.userRegistration" />
+          <EntitySet Name="tbl_userPost" EntityType="BloodBankModel.tbl_userPost" />
+          <AssociationSet Name="FK_tbl_userPost_userRegistration" Association="BloodBankModel.FK_tbl_userPost_userRegistration">
+            <End Role="userRegistration" EntitySet="userRegistrations" />
+            <End Role="tbl_userPost" EntitySet="tbl_userPost" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="tbl_userPost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="userRegistration" Relationship="BloodBankModel.FK_tbl_userPost_userRegistration" FromRole="tbl_userPost" ToRole="userRegistration" />
+        </EntityType>
+        <Association Name="FK_tbl_userPost_userRegistration">
+          <End Type="BloodBankModel.userRegistration" Role="userRegistration" Multiplicity="1" />
+          <End Type="BloodBankModel.tbl_userPost" Role="tbl_userPost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userRegistration">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tbl_userPost">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -95,6 +154,19 @@
                 <ScalarProperty Name="District" ColumnName="District" />
                 <ScalarProperty Name="Criterias" ColumnName="Criterias" />
                 <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Sub_District" ColumnName="Sub_District" />
+                <ScalarProperty Name="Union_council" ColumnName="Union_council" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="Last_donation_date" ColumnName="Last_donation_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_userPost">
+            <EntityTypeMapping TypeName="BloodBankModel.tbl_userPost">
+              <MappingFragment StoreEntitySet="tbl_userPost">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

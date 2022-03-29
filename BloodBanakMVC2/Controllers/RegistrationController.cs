@@ -36,6 +36,9 @@ namespace BloodBanakMVC2.Controllers
                 obj.District = model.District;
                 obj.Criterias = model.Criterias;
                 obj.BloodGroup = model.BloodGroup;
+                obj.Sub_District = model.Sub_District;
+                obj.Union_council = model.Union_council;
+                obj.Village = model.Village;
 
                 //code of 25-01-2022 new method to verify if the user exist or not
                 /*  if(dbObj.userRegistrations.Any(x=>x.Email==model.Email))
