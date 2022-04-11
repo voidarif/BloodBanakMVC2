@@ -15,6 +15,16 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="tbl_DonationRecords">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DonorName" Type="varchar" MaxLength="100" />
+          <Property Name="AcceptorName" Type="varchar" MaxLength="100" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" />
+          <Property Name="DateTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="tbl_userPost">
           <Key>
             <PropertyRef Name="ID" />
@@ -22,6 +32,39 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Message" Type="varchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="tbl_UserPosts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="Division" Type="varchar" MaxLength="50" />
+          <Property Name="District" Type="varchar" MaxLength="50" />
+          <Property Name="Thana" Type="varchar" MaxLength="100" />
+          <Property Name="Unian" Type="varchar" MaxLength="100" />
+          <Property Name="Village" Type="varchar" MaxLength="100" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="Message" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="userPost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="Mobile" Type="varchar" MaxLength="100" />
+          <Property Name="Division" Type="varchar" MaxLength="100" />
+          <Property Name="District" Type="varchar" MaxLength="100" />
+          <Property Name="Thana" Type="varchar" MaxLength="100" />
+          <Property Name="Unian" Type="varchar" MaxLength="100" />
+          <Property Name="Village" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar(max)" />
+          <Property Name="BloodGroup" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="userRegistration">
           <Key>
@@ -55,7 +98,10 @@
         </Association>
         <EntityContainer Name="BloodBankModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_DonationRecords" EntityType="Self.tbl_DonationRecords" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_userPost" EntityType="Self.tbl_userPost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserPosts" EntityType="Self.tbl_UserPosts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userPost" EntityType="Self.userPost" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="userRegistration" EntityType="Self.userRegistration" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tbl_userPost_userRegistration" Association="Self.FK_tbl_userPost_userRegistration">
             <End Role="userRegistration" EntitySet="userRegistration" />
@@ -103,6 +149,9 @@
             <End Role="userRegistration" EntitySet="userRegistrations" />
             <End Role="tbl_userPost" EntitySet="tbl_userPost" />
           </AssociationSet>
+          <EntitySet Name="userPosts" EntityType="BloodBankModel.userPost" />
+          <EntitySet Name="tbl_UserPosts" EntityType="BloodBankModel.tbl_UserPosts" />
+          <EntitySet Name="tbl_DonationRecords" EntityType="BloodBankModel.tbl_DonationRecords" />
         </EntityContainer>
         <EntityType Name="tbl_userPost">
           <Key>
@@ -125,6 +174,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="userPost">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Thana" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Unian" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_UserPosts">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Thana" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Unian" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Village" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_DonationRecords">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DonorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AcceptorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -166,6 +258,52 @@
               <MappingFragment StoreEntitySet="tbl_userPost">
                 <ScalarProperty Name="Message" ColumnName="Message" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userPosts">
+            <EntityTypeMapping TypeName="BloodBankModel.userPost">
+              <MappingFragment StoreEntitySet="userPost">
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="Unian" ColumnName="Unian" />
+                <ScalarProperty Name="Thana" ColumnName="Thana" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserPosts">
+            <EntityTypeMapping TypeName="BloodBankModel.tbl_UserPosts">
+              <MappingFragment StoreEntitySet="tbl_UserPosts">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Village" ColumnName="Village" />
+                <ScalarProperty Name="Unian" ColumnName="Unian" />
+                <ScalarProperty Name="Thana" ColumnName="Thana" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_DonationRecords">
+            <EntityTypeMapping TypeName="BloodBankModel.tbl_DonationRecords">
+              <MappingFragment StoreEntitySet="tbl_DonationRecords">
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="AcceptorName" ColumnName="AcceptorName" />
+                <ScalarProperty Name="DonorName" ColumnName="DonorName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

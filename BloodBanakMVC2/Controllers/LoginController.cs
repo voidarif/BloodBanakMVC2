@@ -77,7 +77,17 @@ namespace BloodBanakMVC2.Controllers
                     {
                         Session["ID"] = v.ID; //newline
                         Session["FullName"] = v.FullName;
-                       // Session["FullName"] = model.FullName.ToString();
+                        Session["DonorName"] = v.FullName;
+                        Session["Email"] = v.Email;
+                        Session["Mobile"] = v.Mobile;
+                        Session["Division"] = v.Division;
+                        Session["District"] = v.District;
+                        Session["Thana"] = v.Sub_District;
+                        Session["Unian"] = v.Union_council;
+                        Session["Village"] = v.Village;
+                        Session["BloodGroup"] = v.BloodGroup;
+
+                        // Session["FullName"] = model.FullName.ToString();
                         return RedirectToAction("Index", "Home");
                     }
                     if(email !=null && pass==null)

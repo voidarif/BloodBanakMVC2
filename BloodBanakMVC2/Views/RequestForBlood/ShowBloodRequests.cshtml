@@ -31,13 +31,16 @@
         <th>
             @Html.DisplayNameFor(model => model.userRegistration.Mobile);
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userRegistration.BloodGroup);
+        </th>
 
         @* <th>
             @Html.DisplayNameFor(model => model.Message)
         </th>*@
-    <th>
-        @Html.DisplayNameFor(model => model.Message)
-    </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
 
         <th></th>
     </tr>
@@ -65,9 +68,12 @@
     <td>
         @Html.DisplayFor(modelItem => item.userRegistration.Mobile)
     </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.userRegistration.BloodGroup)
+    </td>
     <td style="color:red; height:200px; width:200px;">
-            @Html.DisplayFor(modelItem => item.Message)
-        </td>
+        @Html.DisplayFor(modelItem => item.Message)
+    </td>
     <td>
         @* @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
             @Html.ActionLink("Details", "Details", new { id = item.ID }) |

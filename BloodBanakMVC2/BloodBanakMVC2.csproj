@@ -146,7 +146,16 @@
     <Compile Include="Context\sysdiagram.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\tbl_DonationRecords.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\tbl_userPost.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\tbl_UserPosts.cs">
+      <DependentUpon>dbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Context\userPost.cs">
       <DependentUpon>dbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\userRegistration.cs">
@@ -154,6 +163,7 @@
     </Compile>
     <Compile Include="Controllers\ContactOptionsController.cs" />
     <Compile Include="Controllers\ContactWithDonorController.cs" />
+    <Compile Include="Controllers\DonationRecordsController.cs" />
     <Compile Include="Controllers\DonorSearchListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -163,6 +173,8 @@
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RequestForBloodController.cs" />
     <Compile Include="Controllers\SearchDonorController.cs" />
+    <Compile Include="Controllers\tbl_UserPostsController.cs" />
+    <Compile Include="Controllers\userPostsController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -248,6 +260,24 @@
     <Content Include="Views\RequestForBlood\Edit.cshtml" />
     <Content Include="Views\RequestForBlood\Index.cshtml" />
     <Content Include="Views\RequestForBlood\ShowBloodRequests.cshtml" />
+    <Content Include="Views\userPosts\Create.cshtml" />
+    <Content Include="Views\userPosts\Delete.cshtml" />
+    <Content Include="Views\userPosts\Details.cshtml" />
+    <Content Include="Views\userPosts\Edit.cshtml" />
+    <Content Include="Views\userPosts\Index.cshtml" />
+    <Content Include="Views\tbl_UserPosts\Create.cshtml" />
+    <Content Include="Views\tbl_UserPosts\Delete.cshtml" />
+    <Content Include="Views\tbl_UserPosts\Details.cshtml" />
+    <Content Include="Views\tbl_UserPosts\Edit.cshtml" />
+    <Content Include="Views\tbl_UserPosts\Index.cshtml" />
+    <Content Include="Views\tbl_UserPosts\ShowBloodRequests.cshtml" />
+    <Content Include="Views\tbl_UserPosts\RequestDetails.cshtml" />
+    <Content Include="Views\DonationRecords\Create.cshtml" />
+    <Content Include="Views\DonationRecords\Delete.cshtml" />
+    <Content Include="Views\DonationRecords\Details.cshtml" />
+    <Content Include="Views\DonationRecords\Edit.cshtml" />
+    <Content Include="Views\DonationRecords\Index.cshtml" />
+    <Content Include="Views\DonationRecords\ShowDonationRecords.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

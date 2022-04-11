@@ -27,9 +27,11 @@
                     <li>@Html.ActionLink("Helpline", "Contact", "Home")</li>
                     <li>@Html.ActionLink("UserList", "UserList", "Registration")</li>
                     @*<li>@Html.ActionLink("Registration", "Registration", "Registration")</li>
-        <li>@Html.ActionLink("Login", "Login", "Login")</li>*@
+                     <li>@Html.ActionLink("Login", "Login", "Login")</li>*@
                     <li>@Html.ActionLink("SearchDonor", "SearchDonor", "SearchDonor")</li>
-                    <li>@Html.ActionLink("Blood Requests", "ShowBloodRequests", "RequestForBlood")</li>
+                    <li>@Html.ActionLink("Blood Requests", "ShowBloodRequests", "tbl_UserPosts")</li>
+                    @*<li>@Html.ActionLink("Blood Requests", "ShowBloodRequests", "tbl_UserPosts")</li>*@
+                    <li>@Html.ActionLink("Donation Records", "ShowDonationRecords", "DonationRecords")</li>
                 </ul>
                 <ul class="nav navbar-nav" style="float: right !important">
                     @if (Session["FullName"] != null)
@@ -37,7 +39,8 @@
                         <li><p style="color:#fff; margin-top:15px">Hello @Session["FullName"]</p></li>
                         <li>@Html.ActionLink("Logout", "Logout", "Registration")</li>
                         @*<li>@Html.ActionLink("UserProfile", "UserProfile", "UserProfile")</li>*@
-                        <li>@Html.ActionLink("Request For Blood", "Index", "RequestForBlood")</li>
+                        @*<li>@Html.ActionLink("Request For Blood", "Index", "RequestForBlood")</li>*@
+                        <li>@Html.ActionLink("Request For Blood", "Create", "tbl_UserPosts")</li>
 
                     }
                     else
@@ -50,20 +53,21 @@
         </div>
     </div>
     @*<div class="container body-content">
-    </div>*@
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - BY DXD Studio</p>
-        </footer>
-    
+        </div>*@
+
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - BY DXD Studio</p>
+    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     @RenderSection("scripts", required: false)
-<script src="~/Scripts/chosen.jquery.js"></script>
+    <script src="~/Scripts/chosen.jquery.js"></script>
 
 </body>
 </html>

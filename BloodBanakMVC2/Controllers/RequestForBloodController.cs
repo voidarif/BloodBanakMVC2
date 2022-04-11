@@ -39,19 +39,29 @@ namespace BloodBanakMVC2.Controllers
         // GET: RequestForBlood/Create
         public ActionResult Create()
         {
-                ViewBag.UserID = new SelectList(db.userRegistrations, "ID", "FullName");
-                
+            /*var sessionID = db.userRegistrations.Where(x => x.ID.Equals(Session["ID"].ToString()));
+            var sessionName= db.userRegistrations.Where(x => x.FullName.Equals(Session["FullName"].ToString()));*/
+            ViewBag.UserID = new SelectList(db.userRegistrations, "ID", "FullName");
+            /*ViewBag.UserID = new SelectList(db.userRegistrations, sessionID, sessionName);*/
+
             return View();
             
         }
 
         // POST: RequestForBlood/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-      
+
         [HttpPost]
         [ValidateAntiForgeryToken]
+        /*public ActionResult Create([Bind(Include ="ID,UserID,Message")] tbl_userPost tbl_userPost)*/
         public ActionResult Create([Bind(Include = "ID,UserID,Message")] tbl_userPost tbl_userPost)
         {
+            var Se = TempData["UserID"];
+            /*tbl_userPost UserID = TempData["UserID"];*/
+            /* tbl_userPost UserID = db.tbl_userPost.Where(x => x.UserID.Equals(Se)).FirstOrDefault();*/
+            /* tbl_userPost UserID= db.tbl_userPost.Where(x => x.UserID.Equals(Se)).FirstOrDefault();*/
+            /*TempData["UserID"] = tbl_userPost.UserID;*/
+
             if (ModelState.IsValid)
             {
                 db.tbl_userPost.Add(tbl_userPost);

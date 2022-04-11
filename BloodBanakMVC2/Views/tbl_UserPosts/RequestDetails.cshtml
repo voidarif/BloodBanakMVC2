@@ -1,0 +1,141 @@
+﻿@model BloodBanakMVC2.Context.tbl_UserPosts
+
+@{
+    ViewBag.Title = "RequestDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container container-fluid">
+    <h2>Request Details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                <h3>Requested by</h3>
+            </dt>
+
+            <dd>
+                <h3 style=" font-weight:bold">
+                    @Html.DisplayFor(model => model.Name), From
+                    @Html.DisplayFor(model => model.Division), @Html.DisplayFor(model => model.District)
+                </h3>
+            </dd>
+
+            <dt>
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                <h4>Need Blood type</h4>
+            </dt>
+
+            <dd>
+                <h4 style=" font-weight:bold">
+                    @Html.DisplayFor(model => model.BloodGroup)
+                </h4>
+            </dd>
+
+            <dt>
+                <h4> @Html.DisplayNameFor(model => model.Message)</h4>
+            </dt>
+
+            <dd>
+                <h4> @Html.DisplayFor(model => model.Message) </h4>
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mobile)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Division)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Division)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.District)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.District)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Thana)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Thana)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Unian)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Unian)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Village)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Village)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.BloodGroup)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BloodGroup)
+            </dd>*@
+
+            <dt>
+                @*@Html.DisplayNameFor(model => model.DateTime)*@
+                Request Date
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateTime)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Message)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Message)
+            </dd>*@
+
+        </dl>
+        <td>
+
+            <a href="tel: @Html.DisplayFor(model => model.Mobile)" class="btn btn-success">Call</a>
+            <a href="sms:@Html.DisplayFor(model => model.Mobile)" class="btn btn-success">SMS</a>
+            <a href="mailto: @Html.DisplayFor(model => model.Email)" class="btn btn-success" style="background-color:darkorchid">Email</a>
+            @Html.ActionLink("Mark As Donor", "Create", "DonationRecords", new { id = Model.ID }, new { @class = "btn btn-warning" })
+
+        </td>
+    </div>
+   @* <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+</div>

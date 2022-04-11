@@ -28,5 +28,8 @@ namespace BloodBanakMVC2.Context
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<userRegistration> userRegistrations { get; set; }
         public virtual DbSet<tbl_userPost> tbl_userPost { get; set; }
+        public virtual DbSet<userPost> userPosts { get; set; }
+        public virtual DbSet<tbl_UserPosts> tbl_UserPosts { get; set; }
+        public virtual DbSet<tbl_DonationRecords> tbl_DonationRecords { get; set; }
     }
 }

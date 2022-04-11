@@ -37,7 +37,7 @@
                 <td>@item.Criterias</td>
 
                 <td>
-                    <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup})" class="btn btn-success">Edit</a>
+                    <a href="@Url.Action("Registration",new {item.ID,item.FullName,item.Email,item.Password,item.Mobile,item.Division,item.District,item.Criterias,item.BloodGroup,item.Sub_District,item.Union_council,item.Village})" class="btn btn-success" style="width: 67px">Edit</a><br />
                     <a href="@Url.Action("Delete",new {item.ID})" class="btn btn-danger">Delete</a>
                 </td>
             </tr>

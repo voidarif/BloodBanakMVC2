@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BloodBanakMVC2.Context.tbl_DonationRecords>
+
+@{
+    ViewBag.Title = "Donation Records";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container container-fluid" style="background-color: aquamarine; width: 100%; height:600px" >
+    <h2 style="text-align:center; color: orangered">Donation Records</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DonorName)*@
+                Donor
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.AcceptorName)*@
+                Acceptor
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.BloodGroup)*@
+                Blood Group
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.DateTime)*@
+                Date and Time
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DonorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AcceptorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateTime)
+                </td>
+                @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>*@
+            </tr>
+        }
+
+    </table>
+</div>

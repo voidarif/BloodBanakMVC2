@@ -9,6 +9,9 @@
         <EntityTypeShape EntityType="BloodBankModel.userRegistration" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BloodBankModel.tbl_userPost" Width="1.5" PointX="6.125" PointY="1.875" />
         <AssociationConnector Association="BloodBankModel.FK_tbl_userPost_userRegistration" />
+        <EntityTypeShape EntityType="BloodBankModel.userPost" Width="1.5" PointX="10" PointY="1.5" />
+        <EntityTypeShape EntityType="BloodBankModel.tbl_UserPosts" Width="1.5" PointX="4.5" PointY="3.625" />
+        <EntityTypeShape EntityType="BloodBankModel.tbl_DonationRecords" Width="1.5" PointX="7.875" PointY="4.25" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
